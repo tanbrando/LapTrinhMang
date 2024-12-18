@@ -378,11 +378,7 @@
             chunkFormData.append('totalChunks', totalChunks);
 
             try {
-                const response = await fetch('../Upload', {
-                    method: 'POST',
-                    body: chunkFormData,
-                });
-                
+                const response = await fetch('../Upload', { method: 'POST',body: chunkFormData });
                 if (response.ok) {
                     currentChunk++;
                     const progress = (currentChunk / totalChunks) * 100;

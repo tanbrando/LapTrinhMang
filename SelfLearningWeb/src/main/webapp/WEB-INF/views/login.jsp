@@ -13,12 +13,12 @@
         <div class="sideImg">
             <div class="header--auth">
                 <h1 class="logo">SELF STUDY</h1>
-                <a href="register" class="header__btn--auth">Đăng ký</a>
+                <a href="${pageContext.request.contextPath}/Auth/register" class="header__btn--auth">Đăng ký</a>
             </div>
         </div>
     
         <div class="content-section--auth">
-            <form action="login" method="POST" class="auth-form">
+            <form action="${pageContext.request.contextPath}/Auth/login" method="POST" class="auth-form">
                 <h1 class="auth-form__heading">Xin chào!</h1>
                 <div class="auth-form__input-group">
                     <input type="text" id="username" name="username" required>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="auth-form__span">
                     <span>Bạn chưa có tài khoản ? </span>
-                    <a href="register">Đăng ký</a>
+                    <a href="${pageContext.request.contextPath}/Auth/register">Đăng ký</a>
                 </div>
             </form>
         </div>

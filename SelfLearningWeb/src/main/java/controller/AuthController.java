@@ -46,19 +46,19 @@ public class AuthController extends HttpServlet {
 		
 		switch (pathInfo) {
         case "/login":
-        	destination="/login.jsp";
+        	destination="/WEB-INF/views/login.jsp";
 			rd = getServletContext().getRequestDispatcher(destination);
 			rd.forward(req, resp);
             break;
         case "/register":
-        	destination="/register.jsp";
+        	destination="/WEB-INF/views/register.jsp";
 			rd = getServletContext().getRequestDispatcher(destination);
 			rd.forward(req, resp);
         	break;
         case "/logout":
         	HttpSession session = req.getSession();
             session.setAttribute("currentUser", null);
-        	destination="/login.jsp";
+        	destination="/WEB-INF/views/login.jsp";
         	rd = getServletContext().getRequestDispatcher(destination);
 			rd.forward(req, resp);
             break;

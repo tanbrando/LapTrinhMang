@@ -45,18 +45,18 @@ public class UploadController extends HttpServlet {
 		String type = request.getParameter("type");
 		String uploadDir = getServletContext().getRealPath("/upload/");
 		File uploadFolder = new File(uploadDir + type);
-        Part videoPart = request.getPart("file");
+        Part filePart = request.getPart("file");
         int chunkIndex = Integer.parseInt(request.getParameter("chunkIndex"));
         int totalChunks = Integer.parseInt(request.getParameter("totalChunks"));
         
         
         File finalFile = new File(uploadFolder, fileName);
-        try (InputStream videoStream = videoPart.getInputStream();
+        try (InputStream fileStream = filePart.getInputStream();
              FileOutputStream fileOut = new FileOutputStream(finalFile, true)) {  // 'true' sẽ mở file ở chế độ append
              
             byte[] buffer = new byte[1024 * 1024];
             int bytesRead;
-            while ((bytesRead = videoStream.read(buffer)) != -1) {
+            while ((bytesRead = fileStream.read(buffer)) != -1) {
                 fileOut.write(buffer, 0, bytesRead);
             }
         }
